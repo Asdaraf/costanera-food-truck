@@ -1,0 +1,213 @@
+[
+    {
+        "completos": [
+            {
+                "name": "HOT-DOG",
+                "price": "2500",
+                "description": "Salchicha, Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "ITALIANO",
+                "price": "3000",
+                "description": "Salchicha, Palta, Tomate y Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "CHACARERO",
+                "price": "4900",
+                "description": "Salchicha, Palta, Poroto Verde, Ají, Tomate, Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "DINAMICO",
+                "price": "4000",
+                "description": "Salchicha, Palta, Tomate, Salsa Americana, Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "NAPOLITANO",
+                "price": "4900",
+                "description": "Salchicha, Queso Fundido, Tomate, Salsa de Tomate, Orégano y Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "COMPLETO",
+                "price": "3500",
+                "description": "Salchicha, Palta, Repollo, Tomate y Mayo a Elección (incluyen papas)"
+            }
+        ],
+        "as": [
+            {
+                "name": "ASS SOLO MAYO",
+                "price": "3000",
+                "description": "Carne, Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "ITALIANO",
+                "price": "3500",
+                "description": "Carne, Palta, Tomate y Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "CHACARERO",
+                "price": "4990",
+                "description": "Carne, Palta, Poroto Verde, Ají, Tomate, Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "DINAMICO",
+                "price": "4500",
+                "description": "Carne, Palta, Tomate, Salsa Americana, Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "NAPOLITANO",
+                "price": "5400",
+                "description": "Carne, Queso Fundido, Tomate, Salsa de Tomate, Orégano y Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "COMPLETO",
+                "price": "4000",
+                "description": "Carne, Palta, Repollo, Tomate y Mayo a Elección (incluyen papas)"
+            }
+        ],
+        "churrascos": [
+            {
+                "name": "BARROS LUCO",
+                "price": "8900",
+                "description": "Carne picada, doble queso fundido Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "CHURRASCO ITALIANO",
+                "price": "9900",
+                "description": "Carne picada, Palta, Tomate y Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "CHURRASCO CHACARERO",
+                "price": "9900",
+                "description": "Carne picada, Palta, Poroto Verde, Ají, Tomate, Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "CHURRASCO DINAMICO",
+                "price": "9900",
+                "description": "Carne picada, Palta, Tomate, Salsa Americana, Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "CHURRASCO NAPOLITANO",
+                "price": "9900",
+                "description": "Carne Picada, Queso Fundido, Tomate, Salsa de Tomate, Orégano y Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "CHURRASCÓN",
+                "price": "9900",
+                "description": "Doble Porción de Carne Picada, Palta, Tomate y Mayo a Elección (incluyen papas)"
+            }
+        ],
+        "mechada": [
+            {
+                "name": "MECHADA SOLO MAYO",
+                "price": "8900",
+                "description": "Carne Mechada, Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "MECHADA ITALIANA",
+                "price": "9900",
+                "description": "Carne Mechada, Palta, Tomate y Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "MECHADA CHACARERA",
+                "price": "9900",
+                "description": "Carne Mechada, Palta, Poroto Verde, Ají, Tomate, Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "MECHADA LUCO",
+                "price": "9900",
+                "description": "Carne Mechada, Doble Queso Fundido (incluyen papas)"
+            },
+            {
+                "name": "MECHADA PALTA QUESO",
+                "price": "9900",
+                "description": "Carne Mechada, Queso Fundido, Palta y Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "MECHADA PALTA",
+                "price": "9900",
+                "description": "Carne Mechada, Palta y Mayo a Elección (incluyen papas)"
+            }
+        ],
+        "hamburguesas": [
+            {
+                "name": "HAMBURGUESA COMPLETA",
+                "price": "8900",
+                "description": "Hamburguesa de 80gr, Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "HAMBURGUESA ITALIANA",
+                "price": "9900",
+                "description": "Hamburguesa 80gr, Palta, Tomate y Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "HAMBURGUESA CHACARERA",
+                "price": "9900",
+                "description": "Hamburguesa de 80gr, Palta, Poroto Verde, Ají, Tomate, Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "HAMBURGUESA LUCO",
+                "price": "9900",
+                "description": "Hamburguesa de 80gr, Doble Queso Fundido (incluyen papas)"
+            },
+            {
+                "name": "HAMBURGUESA DOBLE",
+                "price": "9900",
+                "description": "Hamburguesa de 170gr, Palta, Tomate, Lechuga y Mayo a Elección (incluyen papas)"
+            }
+        ],
+        "pollo": [
+            {
+                "name": "SANDWICH DE POLLO MAYO",
+                "price": "8900",
+                "description": "Pollo Picado a la Plancha y Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "SANDWICH DE POLLO ITALIANO",
+                "price": "9900",
+                "description": "Pollo Picado a la Plancha, Palta, Tomate y Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "SANDWICH POLLO LUCO",
+                "price": "9900",
+                "description": "Pollo Picado a la Plancha, Triple Queso Fundido, y Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "SANDWICH POLLO DINAMICO",
+                "price": "9900",
+                "description": "Pollo Picado a la Plancha, Palta, Tomate, Salsa Americana, Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "SANDWICH POLLO NAPOLITANO",
+                "price": "9900",
+                "description": "Pollo Picado a la Plancha, Queso Fundido, Tomate, Salsa de Tomate, Orégano y Mayo a Elección (incluyen papas)"
+            },
+            {
+                "name": "SANDWICH POLLO COMPLETO",
+                "price": "9900",
+                "description": "Pollo Picado a la Plancha, Palta, Repollo, Tomate y Mayo a Elección (incluyen papas)"
+            }
+        ],
+        "empanadas": [
+            {
+                "name": "EMPANADA DE QUESO",
+                "price": "2000"
+            },
+            {
+                "name": "EMPANADA DOBLE QUESO",
+                "price": "3500"
+            },
+            {
+                "name": "EMPANADA DE QUESO CON ACEITUNA",
+                "price": "2900"
+            },
+            {
+                "name": "EMPANADA DE QUESO CON CHOCLO",
+                "price": "2900"
+            },
+            {
+                "name": "EMPANADA DE QUESO CON CHAMPIÑON",
+                "price": "2900"
+            }
+        ]
+    }
+]   

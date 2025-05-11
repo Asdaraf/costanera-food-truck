@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Costanera</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="column1">
+        <section class="title">
+          <img src="/images/logo.png" alt="logo" id="logo"/>
+        </section>
+        <section class="menu">
+          <form action="/menu" method="post" class="menu-buttons">
+            <input type="submit" name="menu" value="Completos" />
+            <input type="submit" name="menu" value="As" />
+            <input type="submit" name="menu" value="Churrascos" />
+            <input type="submit" name="menu" value="Mechada" />
+            <input type="submit" name="menu" value="Hamburguesas" />
+            <input type="submit" name="menu" value="Pollo" />
+            <input type="submit" name="menu" value="Empanadas" />
+          </form>
+          <div class="favorite-container">
+            <h3><%= title %></h3>
+            <ol class="list-items">
+              <% if (menu && menu.length > 0) { %>
+                <% menu.forEach((item) => { %>
+                <li class="favorite">
+                  <div class="name-price">
+                    <h3 class="name info"><%= item.name %></h3>
+                    <p class="price info">$<%= item.price %></p>
+                    <label for="cantidad">Cantidad:</label>
+                    <input
+                      type="number"
+                      name="cantidad"
+                      id="cantidad"
+                      min="1"
+                      max="100"
+                      value="1"
+                    />
+                    <button class="add-to-cart">
+                      <span>Agregar al carrito</span>
+                    </button>
+                  </div>
+                  <% if (item.description) { %>
+                  <p class="description info"><%= item.description %></p>
+                  <% } %>
+                </li>
+                <% }); %>
+              <% } else { %>
+                <li>No hay elementos en el menú</li>
+              <% } %>
+            </ol>
+          </div>
+        </section>
+      </div>
+      <div class="column2">
+        <section class="cart-container">
+          <div class="cart">
+            <h2>Carrito</h2>
+            <ul id="cart-items">
+              <% if(pedido) {%> <% for (const key in pedido) { %>
+              <li>
+                <h3 class="producto" id="<%= key %>"><%= key %> x <%= pedido[key].cantidad %></h3>
+                <p id="<%= key %>-price">$<%= pedido[key].dishPrice %></p>
+                
+                <button class="delete-item">
+                  <img src="/images/borrar.png" alt="delete">
+                </button>
+                
+              </li>
+              <% }; %> <% }; %>
+            </ul>
+            <form action="/submit-order" method="post">
+              <div class="form-group">
+                <label for="nombreCliente" class="nombreCliente"> Nombre: </label>
+                <input type="text" name="nombreCliente" placeholder="Ingrese nombre de cliente" id="nombreCliente" class="nombreCliente">
+              </div>
+              <div class="form-group">
+                <label for="numeroMesa" class="numeroMesa">Numero de mesa: </label>
+                <input type="number" name="numeroMesa" id="numeroMesa" class="numeroMesa">
+              </div>
+              
+              <button id="submit-order" type="submit">Enviar pedido</button>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="module" src="./js/cliente.js"></script>
+</html>
