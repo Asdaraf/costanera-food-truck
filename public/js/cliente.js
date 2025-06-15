@@ -10,7 +10,7 @@ let contadorItems = {};
 // Función para obtener el pedido total al backend
 async function getPedidoTotal() {
   try {
-    const response = await axios.get("http://localhost:3000/pedidoTotal");
+    const response = await axios.get("/pedidoTotal");
     const pedidoTotal = response.data;
     return pedidoTotal;
   } catch (error) {
@@ -184,10 +184,45 @@ addToCartButtons.forEach((button) => {
 });
 
 // Manejar el envío del pedido
-document.getElementById("submit-order").addEventListener("click", () => {
-  // Restablecer la lista de artículos y el objeto contadorItems
-  listItems = [];
-  contadorItems = {};
+document.getElementById("submit-order").addEventListener("click", async (e) => {
+  e.preventDefault();
+  
+  const nombreCliente = document.getElementById("nombreCliente").value;
+  const numeroMesa = document.getElementById("numeroMesa").value;
+
+  if (!nombreCliente || !numeroMesa) {
+    alert("Por favor, complete todos los campos");
+    return;
+  }
+
+  try {
+    const response = await axios.post("/submit-order", {
+      nombreCliente,
+      numeroMesa
+    });
+
+    if (response.data.success) {
+      // Limpiar el carrito visualmente
+      const cartItems = document.getElementById("cart-items");
+      cartItems.innerHTML = "";
+      
+      // Limpiar los campos del formulario
+      document.getElementById("nombreCliente").value = "";
+      document.getElementById("numeroMesa").value = "";
+
+      // Mostrar mensaje de éxito
+      alert("Pedido enviado correctamente");
+
+      // Restablecer las variables
+      listItems = [];
+      contadorItems = {};
+    } else {
+      alert("Error al enviar el pedido");
+    }
+  } catch (error) {
+    console.error("Error al enviar el pedido:", error);
+    alert("Error al enviar el pedido. Por favor, intente nuevamente.");
+  }
 });
 
 deleteItemButtons.forEach((button) => {

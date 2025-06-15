@@ -116,7 +116,6 @@ app.post("/menu", async (req, res) => {
     const input = req.body.menu;
     const menu = await readJsonFile("favorite.json");
     
-    // Actualizado para manejar todas las secciones del menú
     switch(input) {
       case "Completos":
         menuSelected = menu[0].completos;
@@ -181,7 +180,8 @@ app.post("/submit-order", async (req, res) => {
       mesa: numeroMesa,
       nombre: nombreCliente,
       pedido: cantidadPedido2,
-      monto: montoTotal
+      monto: montoTotal,
+      fecha: new Date().toISOString()
     };
 
     dbPedidos.push(pedidoNuevo);
@@ -191,10 +191,19 @@ app.post("/submit-order", async (req, res) => {
     pedido = [];
     cantidadPedido = {};
     
-    res.redirect("/");
+    // En lugar de redirigir, enviar una respuesta JSON
+    res.json({ 
+      success: true, 
+      message: "Pedido enviado correctamente",
+      menu: menuSelected,
+      title: titleMenu
+    });
   } catch (error) {
     console.error("Error submitting order:", error);
-    res.status(500).send("Error al procesar el pedido");
+    res.status(500).json({ 
+      success: false, 
+      error: "Error al procesar el pedido" 
+    });
   }
 });
 
@@ -221,6 +230,10 @@ app.post("/api/deleteItem", (req, res) => {
     console.error("Error deleting item:", error);
     res.status(500).json({ error: "Error al eliminar el ítem" });
   }
+});
+
+app.get("/api/pedidos", (req, res) => {
+  res.json(dbPedidos);
 });
 
 // Iniciar la aplicación

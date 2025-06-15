@@ -37,7 +37,7 @@
             <div class="relative flex flex-row items-center justify-center">
               <h3 class="text-xl md:text-2xl font-bold mb-4 text-white font-['Righteous',cursive]"><%= title %></h3>
               <div class="circle-container">
-                <img src="/images/productos/<%= title.toLowerCase() %>.jpeg" alt="<%= title %>" onerror="this.src='/images/productos/default.jpeg'" />
+                <img src="/images/productos/<%= title.toLowerCase() %>.jpeg" alt="<%= title %>"/>
               </div>
             </div>
             <ol class="space-y-3">
@@ -94,7 +94,7 @@
               </div>
               <div class="mb-4">
                 <label for="numeroMesa" class="block text-sm font-medium text-white mb-1">Número de mesa:</label>
-                <input type="number" name="numeroMesa" id="numeroMesa" class="w-full sm:w-24 px-3 py-2 bg-[#333333] border-2 border-[#8B0000] rounded-md text-white text-sm md:text-base focus:border-[#8B0000] focus:outline-none">
+                <input type="number" name="numeroMesa" id="numeroMesa" class="w-5 sm:w-24 px-2 py-1 bg-[#333333] border-2 border-[#8B0000] rounded-md text-white text-sm md:text-base focus:border-[#8B0000] focus:outline-none">
               </div>
               <button id="submit-order" type="submit" class="w-full bg-[#8B0000] hover:bg-[#600000] text-white font-bold py-2 px-4 rounded transition-colors text-sm md:text-base">
                 Enviar pedido
