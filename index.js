@@ -2,16 +2,20 @@
 import express from "express";
 import bodyParser from "body-parser";
 import * as fs from "fs";
-import pg from "pg";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Constantes
 const app = express();
 const port = process.env.PORT || 3000;
 
 // Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(express.static("public"));
+app.use(express.static('public'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Variables globales
 let pedido = [];
@@ -123,13 +127,13 @@ app.post("/menu", async (req, res) => {
       case "Churrascos":
         menuSelected = menu[0].churrascos;
         break;
-      case "Mechada":
+      case "Mechadas":
         menuSelected = menu[0].mechada;
         break;
       case "Hamburguesas":
         menuSelected = menu[0].hamburguesas;
         break;
-      case "Pollo":
+      case "Pollos":
         menuSelected = menu[0].pollo;
         break;
       case "Empanadas":

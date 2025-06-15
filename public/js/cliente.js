@@ -1,6 +1,6 @@
 // Elementos del DOM
 const cartItems = document.getElementById("cart-items"); // Toma el elemento "ul" con el id "cart-items"
-const addToCartButtons = document.querySelectorAll(".add-to-cart"); // Toma el query de todos los botones con la clase "add-to-cart"
+const addToCartButtons = document.querySelectorAll("button:not(.delete-item)"); // Toma el query de todos los botones con la clase "add-to-cart"
 const deleteItemButtons = document.querySelectorAll(".delete-item");
 
 // Variables
@@ -50,13 +50,12 @@ function calcularCantidadPedido(pedido) {
 addToCartButtons.forEach((button) => {
   button.addEventListener("click", () => {
     // Obtenemos informacion del producto seleccionado
-    const menuItem = button.closest(".name-price");
-    const dishName = menuItem.querySelector("h3").textContent;
+    const menuItem = button.closest("li");
+    const dishName = menuItem.querySelector("span").textContent;
     const dishPrice = parseInt(
-      menuItem.querySelector("p").textContent.slice(1)
+      menuItem.querySelector("span:nth-child(2)").textContent.slice(1)
     );
-    const dishCantidad = menuItem.querySelector("input").value;
-    console.log(dishCantidad);
+    const dishCantidad = parseInt(menuItem.querySelector("input[type='number']").value);
 
     // Agregamos el producto al pedido
     for (let index = 0; index < dishCantidad; index++) {
@@ -72,31 +71,41 @@ addToCartButtons.forEach((button) => {
       if (key === dishName && !document.getElementById(`${key}`)) {
         console.log("hola");
         const cartItem = document.createElement("li");
+        cartItem.className = "flex flex-row items-center justify-between bg-[#333333] p-3 rounded mb-4 border border-[#8B0000]";
 
-        const cartItemName = cartItem.appendChild(document.createElement("h3"));
+        const innerDiv = document.createElement("div");
+        innerDiv.className = "flex flex-row items-center justify-between w-full";
+        cartItem.appendChild(innerDiv);
+
+        const cartItemName = document.createElement("h3");
         cartItemName.setAttribute("id", `${key}`);
-
-        const cartItemPrice = cartItem.appendChild(document.createElement("p"));
-        cartItemPrice.setAttribute("id", `${key}-price`);
+        cartItemName.className = "font-semibold text-white text-sm md:text-base";
         cartItemName.textContent = `${key} x ${contadorItems[key].cantidad}`;
+        innerDiv.appendChild(cartItemName);
 
-        const cartItemButtonDelete = cartItem.appendChild(
-          document.createElement("button")
-        );
-        cartItemButtonDelete.setAttribute("class", "delete-item");
+        const rightDiv = document.createElement("div");
+        rightDiv.className = "flex items-center gap-4";
+        innerDiv.appendChild(rightDiv);
 
-        const imageButtonDelete = cartItemButtonDelete.appendChild(
-          document.createElement("img")
-        );
-        imageButtonDelete.setAttribute("src", "/images/borrar.png");
-
-        const priceTotal =
-          contadorItems[key].dishPrice * contadorItems[key].cantidad;
+        const cartItemPrice = document.createElement("p");
+        cartItemPrice.setAttribute("id", `${key}-price`);
+        cartItemPrice.className = "text-white text-sm md:text-base";
+        const priceTotal = contadorItems[key].dishPrice * contadorItems[key].cantidad;
         cartItemPrice.textContent = `$${priceTotal}`;
+        rightDiv.appendChild(cartItemPrice);
+
+        const cartItemButtonDelete = document.createElement("button");
+        cartItemButtonDelete.className = "delete-item p-2 bg-[#8B0000] rounded-full transition-colors";
+        rightDiv.appendChild(cartItemButtonDelete);
+
+        const imageButtonDelete = document.createElement("img");
+        imageButtonDelete.setAttribute("src", "/images/borrar.png");
+        imageButtonDelete.className = "w-5 h-5 md:w-6 md:h-6 mx-auto block";
+        cartItemButtonDelete.appendChild(imageButtonDelete);
+
         cartItems.appendChild(cartItem);
 
         // Agregar evento de click al boton de eliminar
-
         cartItemButtonDelete.addEventListener("click", () => {
           const buttonElements = cartItemButtonDelete.closest("li");
           console.log(buttonElements);

@@ -1,26 +1,24 @@
 {
   "name": "apprestorant",
   "version": "1.0.0",
-  "description": "Menu Buggis",
+  "description": "Aplicación para restaurante",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
     "start": "node index.js"
   },
-  "type": "module",
-  "author": "Francisco Jeraldo",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "@mapbox/node-pre-gyp": "^1.0.11",
-    "axios": "^1.6.8",
-    "body-parser": "^1.20.2",
-    "ejs": "^3.1.10",
-    "express": "^4.19.2",
-    "nan": "^2.19.0",
-    "node-printer": "^1.0.4",
-    "nodemon": "^3.1.0",
-    "pg": "^8.11.5",
-    "prebuild-install": "^7.1.2"
+    "axios": "^1.6.7",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "node-printer": "^1.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
   }
 }

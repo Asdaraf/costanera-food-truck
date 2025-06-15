@@ -3,87 +3,102 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="/css/output.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Righteous&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
     <title>Costanera</title>
   </head>
-  <body>
-    <div class="container">
-      <div class="column1">
-        <section class="title">
-          <img src="/images/logo.png" alt="logo" id="logo"/>
+  <body class="bg-[#343131] text-white min-h-screen p-4 md:p-8 font-['Quicksand',sans-serif]">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6">
+      <!-- Sección del Menú -->
+      <div class="w-full lg:w-2/3">
+        <section class="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
+          <!-- Logo -->
+          <div class="w-full md:w-1/3 flex justify-center">
+            <img src="/images/logo.png" alt="logo" id="logo" class="w-[200px] md:w-[250px] rotate-[335deg]"/>
+          </div>
+          
+          <!-- Botones de Categorías -->
+          <div class="w-full md:w-2/3">
+            <form action="/menu" method="post" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4">
+              <input type="submit" name="menu" value="Completos" class="bg-[#8B0000] hover:bg-[#600000] text-white text-sm md:text-base font-bold py-2 px-2 md:px-4 rounded transition-colors" />
+              <input type="submit" name="menu" value="As" class="bg-[#8B0000] hover:bg-[#600000] text-white text-sm md:text-base font-bold py-2 px-2 md:px-4 rounded transition-colors" />
+              <input type="submit" name="menu" value="Churrascos" class="bg-[#8B0000] hover:bg-[#600000] text-white text-sm md:text-base font-bold py-2 px-2 md:px-4 rounded transition-colors" />
+              <input type="submit" name="menu" value="Mechadas" class="bg-[#8B0000] hover:bg-[#600000] text-white text-sm md:text-base font-bold py-2 px-2 md:px-4 rounded transition-colors" />
+              <input type="submit" name="menu" value="Hamburguesas" class="bg-[#8B0000] hover:bg-[#600000] text-white text-sm md:text-base font-bold py-2 px-2 md:px-4 rounded transition-colors" />
+              <input type="submit" name="menu" value="Pollos" class="bg-[#8B0000] hover:bg-[#600000] text-white text-sm md:text-base font-bold py-2 px-2 md:px-4 rounded transition-colors" />
+              <input type="submit" name="menu" value="Empanadas" class="bg-[#8B0000] hover:bg-[#600000] text-white text-sm md:text-base font-bold py-2 px-2 md:px-4 rounded transition-colors" />
+            </form>
+          </div>
         </section>
-        <section class="menu">
-          <form action="/menu" method="post" class="menu-buttons">
-            <input type="submit" name="menu" value="Completos" />
-            <input type="submit" name="menu" value="As" />
-            <input type="submit" name="menu" value="Churrascos" />
-            <input type="submit" name="menu" value="Mechada" />
-            <input type="submit" name="menu" value="Hamburguesas" />
-            <input type="submit" name="menu" value="Pollo" />
-            <input type="submit" name="menu" value="Empanadas" />
-          </form>
-          <div class="favorite-container">
-            <h3><%= title %></h3>
-            <ol class="list-items">
+        <section class="bg-[#2a2a2a] rounded-lg shadow-lg p-4 md:p-6 border-2 border-[#8B0000]">
+          
+          <!-- Lista de Productos -->
+          <div class="mb-[30px]">
+            <div class="relative flex flex-row items-center justify-center">
+              <h3 class="text-xl md:text-2xl font-bold mb-4 text-white font-['Righteous',cursive]"><%= title %></h3>
+              <div class="circle-container">
+                <img src="/images/productos/<%= title.toLowerCase() %>.jpeg" alt="<%= title %>" onerror="this.src='/images/productos/default.jpeg'" />
+              </div>
+            </div>
+            <ol class="space-y-3">
               <% if (menu && menu.length > 0) { %>
                 <% menu.forEach((item) => { %>
-                <li class="favorite">
-                  <div class="name-price">
-                    <h3 class="name info"><%= item.name %></h3>
-                    <p class="price info">$<%= item.price %></p>
-                    <label for="cantidad">Cantidad:</label>
-                    <input
-                      type="number"
-                      name="cantidad"
-                      id="cantidad"
-                      min="1"
-                      max="100"
-                      value="1"
-                    />
-                    <button class="add-to-cart">
-                      <span>Agregar al carrito</span>
-                    </button>
+                <li class="bg-[#333333] p-3 md:p-4 rounded-lg shadow mb-4 border border-[#8B0000]">
+                  <div class="flex flex-row sm:flex-col sm:items-center justify-between gap-2">
+                    <span class="text-base md:text-xl font-semibold text-white"><%= item.name %></span>
+                    <span class="text-base md:text-lg font-bold text-white">$<%= item.price %></span>
                   </div>
                   <% if (item.description) { %>
-                  <p class="description info"><%= item.description %></p>
+                    <p class="text-sm md:text-base text-gray-300 mt-2"><%= item.description %></p>
                   <% } %>
+                  <div class="flex items-center gap-2 mt-3 mt-2">
+                    <input type="number" min="1" value="1" class="w-8 px-2 py-1 bg-[#333333] border-2 border-[#8B0000] rounded-md text-white text-sm md:text-base focus:border-[#8B0000] focus:outline-none" />
+                    <button class="add-to-cart sm:w-auto bg-[#8B0000] hover:bg-[#600000] text-white text-sm md:text-base font-bold px-4 rounded transition-colors">Agregar al carrito</button>
+                  </div>
                 </li>
                 <% }); %>
               <% } else { %>
-                <li>No hay elementos en el menú</li>
+                <li class="text-gray-300 text-center py-4">No hay elementos en el menú</li>
               <% } %>
             </ol>
           </div>
         </section>
       </div>
-      <div class="column2">
-        <section class="cart-container">
-          <div class="cart">
-            <h2>Carrito</h2>
-            <ul id="cart-items">
-              <% if(pedido) {%> <% for (const key in pedido) { %>
-              <li>
-                <h3 class="producto" id="<%= key %>"><%= key %> x <%= pedido[key].cantidad %></h3>
-                <p id="<%= key %>-price">$<%= pedido[key].dishPrice %></p>
-                
-                <button class="delete-item">
-                  <img src="/images/borrar.png" alt="delete">
-                </button>
-                
-              </li>
-              <% }; %> <% }; %>
+
+      <!-- Sección del Carrito -->
+      <div class="w-full lg:w-1/3 mt-4" >
+        <section class="sticky top-4">
+          <div class="bg-[#2a2a2a] rounded-lg shadow-lg p-4 md:p-6 border-2 border-[#8B0000]">
+            <h2 class="text-xl md:text-2xl font-bold mb-4 text-white">Carrito</h2>
+            <ul id="cart-items" class="space-y-3 max-h-[400px] overflow-y-auto">
+              <% if(pedido) {%> 
+                <% for (const key in pedido) { %>
+                <li class="flex flex-row items-center justify-between bg-[#333333] p-3 rounded mb-4 border border-[#8B0000]">
+                  <div class="flex flex-row items-center justify-between w-full">
+                    <h3 class="font-semibold text-white text-sm md:text-base" id="<%= key %>"><%= key %> x <%= pedido[key].cantidad %></h3>
+                    <div class="flex items-center gap-4">
+                      <p id="<%= key %>-price" class="text-white text-sm md:text-base">$<%= pedido[key].dishPrice %></p>
+                      <button class="delete-item p-2 bg-[#8B0000] rounded-full transition-colors">
+                        <img src="/images/borrar.png" alt="delete" class="w-5 h-5 md:w-6 md:h-6 mx-auto block">
+                      </button>
+                    </div>
+                  </div>
+                </li>
+                <% }; %> 
+              <% }; %>
             </ul>
-            <form action="/submit-order" method="post">
-              <div class="form-group">
-                <label for="nombreCliente" class="nombreCliente"> Nombre: </label>
-                <input type="text" name="nombreCliente" placeholder="Ingrese nombre de cliente" id="nombreCliente" class="nombreCliente">
+            <form action="/submit-order" method="post" class="space-y-4 mt-4">
+              <div class="mb-4">
+                <label for="nombreCliente" class="block text-sm font-medium text-white mb-1">Nombre:</label>
+                <input type="text" name="nombreCliente" placeholder="Ingrese nombre de cliente" id="nombreCliente" class="w-full px-3 py-2 bg-[#333333] border-2 border-[#8B0000] rounded-md text-white text-sm md:text-base focus:border-[#8B0000] focus:outline-none">
               </div>
-              <div class="form-group">
-                <label for="numeroMesa" class="numeroMesa">Numero de mesa: </label>
-                <input type="number" name="numeroMesa" id="numeroMesa" class="numeroMesa">
+              <div class="mb-4">
+                <label for="numeroMesa" class="block text-sm font-medium text-white mb-1">Número de mesa:</label>
+                <input type="number" name="numeroMesa" id="numeroMesa" class="w-full sm:w-24 px-3 py-2 bg-[#333333] border-2 border-[#8B0000] rounded-md text-white text-sm md:text-base focus:border-[#8B0000] focus:outline-none">
               </div>
-              
-              <button id="submit-order" type="submit">Enviar pedido</button>
+              <button id="submit-order" type="submit" class="w-full bg-[#8B0000] hover:bg-[#600000] text-white font-bold py-2 px-4 rounded transition-colors text-sm md:text-base">
+                Enviar pedido
+              </button>
             </form>
           </div>
         </section>
