@@ -1,1 +1,1 @@
-[]
+[{"id":1,"mesa":"1","nombre":"sasa","pedido":{"COMPLETO":1},"monto":3500,"fecha":"2025-06-18T03:54:09.946Z"},{"id":1,"mesa":"4","nombre":"AME","pedido":{"COMPLETO":4},"monto":14000,"fecha":"2025-06-18T03:54:30.852Z"},{"id":1,"mesa":"6","nombre":"piola","pedido":{"DINAMICO":2},"monto":8000,"fecha":"2025-06-18T03:54:48.088Z"}]

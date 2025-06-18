@@ -42,6 +42,7 @@ deleteItemButtons.forEach((button) => {
 
 // Función para actualizar la lista de pedidos
 function actualizarPedidos() {
+  console.log('Ejecutando actualizarPedidos...');
   axios.get('/api/pedidos')
     .then(response => {
       const pedidos = response.data;
@@ -128,11 +129,21 @@ function actualizarPedidos() {
     })
     .catch(error => {
       console.error('Error al obtener pedidos:', error);
+      console.error('Detalles del error:', {
+        mensaje: error.message,
+        respuesta: error.response?.data,
+        estado: error.response?.status
+      });
     });
 }
 
 // Actualizar pedidos cada 5 segundos
 setInterval(actualizarPedidos, 5000);
 
+
 // Actualizar pedidos al cargar la página
 document.addEventListener('DOMContentLoaded', actualizarPedidos);
+
+/*setTimeout(function() {
+  location.reload();
+}, 5000);*/

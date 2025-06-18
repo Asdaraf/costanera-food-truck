@@ -138,6 +138,9 @@ app.post("/menu", async (req, res) => {
       case "Empanadas":
         menuSelected = menu[0].empanadas;
         break;
+      case "Bebidas":
+        menuSelected = menu[0].bebidas;
+        break;
       default:
         menuSelected = menu[0].completos;
     }

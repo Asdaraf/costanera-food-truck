@@ -208,6 +208,28 @@
                 "name": "EMPANADA DE QUESO CON CHAMPIÑON",
                 "price": "2900"
             }
+        ],
+        "bebidas": [
+            {
+                "name": "JUGOS",
+                "price": "3500"
+            },
+            {
+                "name": "BEBIDAS",
+                "price": "2000"
+            },
+            {
+                "name": "TÉ",
+                "price": "2000"
+            },
+            {
+                "name": "CAFÉ",
+                "price": "2000"
+            },
+            {
+                "name": "AGUA MINERAL",
+                "price": "1500"
+            }
         ]
     }
 ]   
