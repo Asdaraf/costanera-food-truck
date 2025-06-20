@@ -22,7 +22,7 @@ let pedido = [];
 let cantidadPedido = {};
 let contadorPedidos = 0;
 let menuSelected;
-let titleMenu = "Completos";
+let titleMenu = "Menús";
 let dbPedidos = [];
 
 // Funciones de utilidad
@@ -64,7 +64,7 @@ function calcularCantidadPedido(pedido) {
 async function initializeApp() {
   try {
     const menu = await readJsonFile("favorite.json");
-    menuSelected = menu[0].completos;
+    menuSelected = menu[0].menús;
     await readJsonFile("pedidos.json").then(data => {
       dbPedidos = data;
     });
@@ -117,6 +117,9 @@ app.post("/menu", async (req, res) => {
     const menu = await readJsonFile("favorite.json");
     
     switch(input) {
+      case "Menús":
+        menuSelected = menu[0].menús;
+        break;
       case "Completos":
         menuSelected = menu[0].completos;
         break;
@@ -142,7 +145,7 @@ app.post("/menu", async (req, res) => {
         menuSelected = menu[0].bebidas;
         break;
       default:
-        menuSelected = menu[0].completos;
+        menuSelected = menu[0].menús;
     }
     
     titleMenu = input;

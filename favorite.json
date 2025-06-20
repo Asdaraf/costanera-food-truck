@@ -1,5 +1,32 @@
 [
     {
+        "menús": [
+            {
+                "name": "Menú 1",
+                "price": "8990",
+                "description": "Reineta + arroz + ensalada + consome"
+            },
+            {
+                "name": "Menú 2",
+                "price": "7990",
+                "description": "Bistec + arroz + ensalada + consome"
+            },
+            {
+                "name": "Menú 3",
+                "price": "8990",
+                "description": "Lomo + arroz + ensalada + consome"
+            },
+            {
+                "name": "Menú 4",
+                "price": "6990",
+                "description": "Pechuga pollo + arroz + ensalada + consome"
+            },
+            {
+                "name": "Menú 5",
+                "price": "6990",
+                "description": "Pastel de choclo + consome"
+            }
+        ],
         "completos": [
             {
                 "name": "HOT-DOG",
